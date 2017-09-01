@@ -28,8 +28,8 @@ void setup() {
 //8-25-2017
 void draw() {
   //Hydrogen_BrightLine();
-  //BalmerSeries_BrightLine();
-  Rydberg_BrightLine();
+  BalmerSeries_BrightLine();
+  //Rydberg_BrightLine();
   //Sodium_BrightLine();
   //Helium_BrightLine();
   //Neon_BrightLine();
@@ -44,69 +44,54 @@ void draw() {
 void Hydrogen_BrightLine() {
   Element H = new Element(new int[]{656, 486, 434, 410});
   int[] spectra = H.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 void Sodium_BrightLine() {
   Element Na = new Element(new int[]{589, 590});
   int[] spectra = Na.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 void Helium_BrightLine() {
   Element He = new Element(new int[]{403, 447, 471, 502, 588, 668});
   int[] spectra = He.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 void Neon_BrightLine() {
   Element Ne = new Element(new int[]{540, 585, 588, 603, 607, 616, 622, 627, 633, 638, 640, 651, 660, 693, 703});
   int[] spectra = Ne.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 void Mercury_BrightLine() {
   Element Hg = new Element(new int[]{436, 546, 577, 579});
   int[] spectra = Hg.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 void Cadmium_BrightLine() {
   Element Cd = new Element(new int[]{644, 636, 509, 480, 468, 441});
   int[] spectra = Cd.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 void Fluorine_BrightLine() {
   Element F = new Element(new int[]{624, 635, 641, 684, 686, 690});
   int[] spectra = F.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 void Chlorine_BrightLine() {
   Element Cl = new Element(new int[]{480, 542, 490, 522, 491, 481});
   int[] spectra = Cl.getSpectra();
+  displaySpectrum(spectra);
+}
+
+//Function to handle display of spectra--------------------------------------------------------------------
+//8-31-2017
+void displaySpectrum(int[] spectra) {
   for(int m = 0; m < spectra.length; m++) {
     stroke(wavelengthToColor(spectra[m]));
     line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
@@ -155,10 +140,7 @@ void Rydberg_BrightLine() {
   }
   Element H = new Element(fins);
   int[] spectra = H.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 //Implementation of Balmer's formula and series-------------------------------------------------------------
@@ -178,10 +160,7 @@ int[] BalmerFormula() {
 void BalmerSeries_BrightLine() {
   Element H = new Element(BalmerFormula());
   int[] spectra = H.getSpectra();
-  for(int m = 0; m < spectra.length; m++) {
-    stroke(wavelengthToColor(spectra[m]));
-    line(scalefactor * (spectra[m] - 380), 0, scalefactor * (spectra[m] - 380), height);
-  }
+  displaySpectrum(spectra);
 }
 
 //Deprecated HSV to RGB color conversion - didn't work too well---------------------------------------------
